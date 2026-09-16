@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
+import { NotificationCenter } from '@/components/NotificationCenter';
 
 function NavContent() {
   const { user, logout } = useAuth();
@@ -27,6 +28,7 @@ function NavContent() {
               <Link href="/reports" className="hover:underline">รายงาน</Link>
             </>
           )}
+          <NotificationCenter />
           {user && (
             <button
               onClick={logout}
