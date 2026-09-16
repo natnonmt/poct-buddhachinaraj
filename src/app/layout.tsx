@@ -15,6 +15,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/dashboard" className="hover:underline">หน้าหลัก</Link>
             <Link href="/equipment" className="hover:underline">ทะเบียนเครื่อง</Link>
             <Link href="/iqc" className="hover:underline">บันทึก IQC</Link>
+            <Link href="/eqa" className="hover:underline">บันทึก EQA</Link>
+            <Link href="/competency" className="hover:underline">สมรรถนะ</Link>
+            <Link href="/maintenance" className="hover:underline">บำรุงรักษา</Link>
+            <Link href="/reports" className="hover:underline">รายงาน</Link>
           </div>
         </div>
       </nav>
