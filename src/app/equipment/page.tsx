@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Badge, Input } from '@/components/ui/Common';
 import { poctApi } from '@/lib/api';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
-export default function EquipmentPage() {
+function EquipmentContent() {
   const [equipment, setEquipment] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isAdding, setIsAdding] = useState(false);
@@ -146,10 +147,17 @@ export default function EquipmentPage() {
         </table>
       </div>
 
-      {/* Mobile Add Button */}
       <div className="sm:hidden fixed bottom-20 right-6">
         <Button onClick={() => setIsAdding(true)} className="shadow-lg rounded-full w-14 h-14 flex items-center justify-center text-2xl">+</Button>
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <ProtectedRoute allowedRoles={['admin', 'lab_staff']}>
+      <EquipmentContent />
+    </ProtectedRoute>
   );
 }

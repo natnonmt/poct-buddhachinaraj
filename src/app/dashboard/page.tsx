@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Badge } from '@/components/ui/Common';
 import { poctApi } from '@/lib/api';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
+import Link from 'next/link';
 
-export default function Dashboard() {
+function DashboardContent() {
   const [stats, setStats] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -97,5 +99,10 @@ export default function Dashboard() {
   );
 }
 
-// Since I can't use Link without importing it
-import Link from 'next/link';
+export default function Page() {
+  return (
+    <ProtectedRoute>
+      <DashboardContent />
+    </ProtectedRoute>
+  );
+}

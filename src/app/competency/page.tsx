@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Input, Badge } from '@/components/ui/Common';
 import { poctApi } from '@/lib/api';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
-export default function CompetencyPage() {
+function CompetencyContent() {
   const [records, setRecords] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isAdding, setIsAdding] = useState(false);
@@ -144,5 +145,13 @@ export default function CompetencyPage() {
         <Button onClick={() => setIsAdding(true)} className="shadow-lg rounded-full w-14 h-14 flex items-center justify-center text-2xl">+</Button>
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <ProtectedRoute>
+      <CompetencyContent />
+    </ProtectedRoute>
   );
 }

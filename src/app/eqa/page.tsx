@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Input, Badge } from '@/components/ui/Common';
 import { poctApi } from '@/lib/api';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
-export default function EQAPage() {
+function EQAContent() {
   const [equipment, setEquipment] = useState([]);
   const [selectedId, setSelectedId] = useState('');
   const [loading, setLoading] = useState(true);
@@ -132,5 +133,13 @@ export default function EQAPage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <ProtectedRoute>
+      <EQAContent />
+    </ProtectedRoute>
   );
 }

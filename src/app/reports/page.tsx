@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from '@/components/ui/Common';
 import { poctApi } from '@/lib/api';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
-export default function ReportsPage() {
+function ReportsContent() {
   const [reportData, setReportData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
@@ -117,5 +118,13 @@ export default function ReportsPage() {
         </div>
       </Card>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <ProtectedRoute allowedRoles={['admin', 'lab_staff']}>
+      <ReportsContent />
+    </ProtectedRoute>
   );
 }
