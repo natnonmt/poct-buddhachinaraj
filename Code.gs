@@ -4,7 +4,7 @@
  * Database: Google Sheets
  */
 
-const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID'; // User must replace this or leave blank if script is bound to sheet
+const SPREADSHEET_ID = '1kGUv80XNjUHyN7O8sUEBW9E2cuJifi5z6N993dca16U'; // User must replace this or leave blank if script is bound to sheet
 
 function getSheet(name) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
